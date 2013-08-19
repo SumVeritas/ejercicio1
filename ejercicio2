@@ -1,0 +1,33 @@
+float x = 50;
+float y = 100;
+float xvel = 1;
+float yvel = 7;
+
+void setup() {
+  size(600,600);
+  smooth();
+  background(0);
+}
+
+void draw() {
+  noStroke();
+  fill(255,10,25,7);
+  rect(0,0,width,height);
+   
+//velocidad
+  x = x + xvel;
+  y = y + yvel;
+
+//rebote
+  if ((x > width) || (x < 0)) {
+    xvel = xvel * -1;
+  }
+  if ((y > height) || (y < 0)) {
+    yvel = yvel * -1;
+  }
+
+//rectangulo que cambia de color
+  noStroke();
+  fill(y,200,x,100);
+  rect(x,y,80,80);
+}
